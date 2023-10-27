@@ -1,0 +1,7 @@
+{
+  "name": "Ponto Eletrônico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
