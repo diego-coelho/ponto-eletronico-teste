@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  apiServer: 'https://theraponto.dev.thera.com.br:4433',
 };

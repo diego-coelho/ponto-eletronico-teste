@@ -1,0 +1,58 @@
+.conteiner-login {
+  .conteiner-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+
+    .img {
+      width: 50%;
+    }
+  }
+
+  ion-loading.custom-loading {
+    --background: #e3edff;
+    --spinner-color: #ffffff;
+
+    color: #ffffff;
+  }
+  .containe-form-login {
+    align-items: center;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      ion-row {
+        padding-bottom: 5%;
+        img {
+          padding-right: 10px;
+        }
+      }
+
+      ion-input {
+        background: #ffffff;
+        border-radius: 5px;
+        opacity: 1;
+        width: 290px;
+      }
+
+      .contaner-button {
+        width: 98px;
+        height: 33px;
+        background: #fccd2a;
+        border-radius: 5px;
+        opacity: 1;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+          background: #fccd2a;
+          color: #1e5084;
+        }
+      }
+    }
+  }
+}

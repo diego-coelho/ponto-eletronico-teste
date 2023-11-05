@@ -1,12 +1,18 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'br.com.thera.pontoeletronico',
   appName: 'Ponto Eletrônico',
   webDir: 'www',
+
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
+  plugins: {
+    CapacitorHttp: {
+      enabled: false,
+    },
+  },
 };
 
 export default config;

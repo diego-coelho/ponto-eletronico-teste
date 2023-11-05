@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ponto Eletrônico</string>
+    <string name="title_activity_main">Ponto Eletrônico</string>
+    <string name="package_name">br.com.thera.pontoeletronico</string>
+    <string name="custom_url_scheme">br.com.thera.pontoeletronico</string>
+</resources>

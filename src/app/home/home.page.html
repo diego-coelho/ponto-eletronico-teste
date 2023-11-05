@@ -1,25 +1,108 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Inbox
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="conteiner-header ion-padding">
+    <img class="img" src="../../assets/Logo Thera@2x.png" />
+    <ion-text class="titulo">Olà, {{usuarioLogado}}!</ion-text>
+    <ion-button class="button-sair" fill="clear" (click)="logOut()">
+      <img src="../../assets/icon/icon-sair.svg" />
+    </ion-button>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
-  </ion-list>
+  <ion-row class="container-text">
+    <ion-text>{{currentDateTime | date : 'dd/MM/yyyy'}}</ion-text>
+    <ion-text>{{currentDateTime | date : 'HH:mm:ss'}}</ion-text>
+  </ion-row>
+  <ion-text class="text-time">Tempo {{obterTempo}}</ion-text>
+  <ion-row>
+    <ion-button
+      (click)="postStart()"
+      [fill]="currentTimesheet?.start ? 'solid' : 'outline'"
+      color="warning"
+      [disabled]="currentTimesheet?.start"
+    >
+      CHEGUEI
+    </ion-button>
+
+    <ion-button
+      (click)="postStartLunch()"
+      [fill]="currentTimesheet?.startLunch ? 'solid' : 'outline'"
+      color="warning"
+      [disabled]="currentTimesheet?.startLunch"
+    >
+      FUI ALMOÇAR
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button
+      (click)="postEndLunch()"
+      [fill]="currentTimesheet?.endLunch ? 'solid' : 'outline'"
+      color="warning"
+      [disabled]="currentTimesheet?.endLunch"
+    >
+      VOLTEI
+    </ion-button>
+
+    <ion-button
+      (click)="postEnd()"
+      [fill]="currentTimesheet?.end ? 'solid' : 'outline'"
+      color="warning"
+      [disabled]="currentTimesheet?.end"
+    >
+      FUI
+    </ion-button>
+  </ion-row>
+  <form *ngFor="let item of timesheet">
+    <div class="container-input">
+      <div class="input">
+        <ion-text class="text-input">DATA</ion-text>
+        <ion-input
+          [value]="dateTimezone(item.start) | date : 'dd/MM/yyyy'"
+          type="text"
+          disabled="true"
+        ></ion-input>
+      </div>
+      <div class="input">
+        <ion-text class="text-input">HORA INÍCIO</ion-text>
+        <ion-input
+          [value]="dateTimezone(item.start) | date: 'HH:mm'"
+          type="text"
+          disabled="true"
+        ></ion-input>
+      </div>
+    </div>
+    <div class="container-input">
+      <div class="input">
+        <ion-text class="text-input">ALMOÇO INÍCIO</ion-text>
+        <ion-input
+          [value]="dateTimezone(item.startLunch) | date: 'HH:mm'"
+          type="text"
+          disabled="true"
+        ></ion-input>
+      </div>
+      <div class="input">
+        <ion-text class="text-input">ALMOÇO FIM</ion-text>
+        <ion-input
+          [value]="dateTimezone(item.endLunch) | date: 'HH:mm'"
+          type="text"
+          disabled="true"
+        ></ion-input>
+      </div>
+    </div>
+    <div class="container-input">
+      <div class="input">
+        <ion-text class="text-input">HORA FIM</ion-text>
+        <ion-input
+          [value]="dateTimezone(item.end) | date: 'HH:mm'"
+          type="text"
+          disabled="true"
+        ></ion-input>
+      </div>
+      <div class="input">
+        <ion-text class="text-input">TEMPO</ion-text>
+        <ion-input [value]="item.tempo" type="text" disabled="true"></ion-input>
+      </div>
+    </div>
+    <div class="conteiner-line">
+      <div class="line"></div>
+    </div>
+  </form>
 </ion-content>

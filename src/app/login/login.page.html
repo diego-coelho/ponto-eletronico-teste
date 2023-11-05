@@ -1,0 +1,61 @@
+<ion-content class="conteiner-login">
+  <div class="conteiner-img">
+    <img class="img" src="../../assets/Logo Thera@2x.png" />
+  </div>
+  <div class="containe-form-login">
+    <form (ngSubmit)="authClient()" [formGroup]="loginForm">
+      <ion-row
+        class="ion-justify-content-center"
+        class="ion-align-items-center"
+      >
+        <ion-col>
+          <img class="img" src="../../assets/icon/icon-usuario.svg" />
+        </ion-col>
+        <ion-col>
+          <ion-input
+            color="primary"
+            placeholder="Usuário"
+            type="email"
+            class="ion-padding"
+            formControlName="email"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        class="ion-justify-content-center"
+        class="ion-align-items-center"
+      >
+        <ion-col>
+          <img class="img" src="../../assets/icon/icon-senha.svg" />
+        </ion-col>
+        <ion-col>
+          <ion-input
+            placeholder="Senha"
+            type="password"
+            class="ion-padding"
+            formControlName="senha"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row
+        class="ion-justify-content-center"
+        class="ion-align-items-center"
+      >
+        <ion-col>
+          <ion-button color="warning" expand="block" type="submit"
+            >LOGIN</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-content class="ion-padding">
+      <ion-toast
+        [isOpen]="isToastOpen"
+        message="Usuário ou senha incorretos!"
+        [duration]="5000"
+        (didDismiss)="setOpenToast(false)"
+      ></ion-toast>
+    </ion-content>
+  </div>
+</ion-content>
